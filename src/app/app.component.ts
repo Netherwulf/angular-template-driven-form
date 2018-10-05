@@ -10,9 +10,25 @@ export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
   defaultQuestion: String = 'pet';
   answer: String = '';
+  genders = ['male', 'female'];
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    // overwriting whole form data
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: 'example@exam.com'
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: 'Andrew',
+    //   gender: 'male'
+    // });
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   // without @ViewChild()
